@@ -1,4 +1,4 @@
-public abstract class Apartment implements Comparable<Apartment>{
+public class Apartment implements Comparable<Apartment>{
     String city;
     int rooms;
     int sqrFt;
@@ -54,23 +54,23 @@ public abstract class Apartment implements Comparable<Apartment>{
     }
 
     //@Override
-    public int compareTo(Apartment a,Apartment b) {
-        if((a.getCity()== "София" || a.getCity()=="Варна" || a.getCity()=="Бургас") && b.getCity()!="София" && b.getCity()!="Варна" && b.getCity()!="Бургас"){
+    public int compareTo(Apartment b) {
+        if((this.getCity().equals("София") || this.getCity().equals("Варна") || this.getCity().equals("Бургас")) && !b.getCity().equals("София") && !b.getCity().equals("Варна") && !b.getCity().equals("Бургас")){
             return -1;
-        }else if((b.getCity()== "София" || b.getCity()=="Варна" || b.getCity()=="Бургас") && a.getCity()!="София" && a.getCity()!="Варна" && a.getCity()!="Бургас"){
+        }else if((b.getCity().equals("София") || b.getCity().equals("Варна") || b.getCity().equals("Бургас")) && !this.getCity().equals("София") && !this.getCity().equals("Варна") && !this.getCity().equals("Бургас")){
             return 1;
         }else{
-            if(a.getRooms()==3 && b.getRooms()!=3){
+            if(this.getRooms()==3 && b.getRooms()!=3){
                 return -1;
-            }else if(a.getRooms()!=3 && b.getRooms()==3){
+            }else if(this.getRooms()!=3 && b.getRooms()==3){
                 return 1;
             }else{
-                if(a.getSqrFt()>100 && b.getSqrFt()<=100){
+                if(this.getSqrFt()>100 && b.getSqrFt()<=100){
                     return -1;
-                }else if(a.getSqrFt()<=100 && b.getSqrFt()>100){
+                }else if(this.getSqrFt()<=100 && b.getSqrFt()>100){
                     return 1;
                 }else{
-                    return a.getPrice()-b.getPrice();
+                    return this.getPrice()-b.getPrice();
                 }
             }
         }
